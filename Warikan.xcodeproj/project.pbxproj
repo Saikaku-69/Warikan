@@ -52,7 +52,7 @@
 			isa = PBXGroup;
 			children = (
 				7F05F6892D730C9700D4F555 /* WarikanApp.swift */,
-				7F05F68B2D730C9700D4F555 /* ContentView.swift */,
+				7F3A28652D735F420079845F /* Views */,
 				7F05F68D2D730C9A00D4F555 /* Assets.xcassets */,
 				7F05F68F2D730C9A00D4F555 /* Preview Content */,
 			);
@@ -65,6 +65,14 @@
 				7F05F6902D730C9A00D4F555 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		7F3A28652D735F420079845F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				7F05F68B2D730C9700D4F555 /* ContentView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
