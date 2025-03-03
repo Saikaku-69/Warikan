@@ -10,8 +10,16 @@ import SwiftUI
 @main
 struct WarikanApp: App {
     var body: some Scene {
+        
+//        @StateObject var userVM: UserViewModel
+//        
+//        init(user: UserModel) {
+//            _userVM = StateObject(wrappedValue: UserViewModel(user:user))
+//        }
+        
         WindowGroup {
-            ContentView()
+            LoginView()
+//                .environmentObject(userVM)
         }
     }
 }

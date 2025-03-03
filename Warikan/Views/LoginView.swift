@@ -8,27 +8,44 @@
 import SwiftUI
 
 struct LoginView: View {
+    
     @State private var mail:String = ""
-    @State private var password:String = ""
+    @State private var userModel: UserModel?
+    @StateObject private var loginVM = LoginViewModel()
+    
     var body: some View {
+        
         VStack {
             Text("登録画面")
                 .font(.title)
+            
             Text("メールを入力してください")
             TextField("@jec.ac.jp", text:$mail)
                 .txtFieldStyle()
-            Text("暗証番号を入力してください")
-            TextField("6桁", text: $password)
-                .txtFieldStyle()
+            Text(loginVM.errorMessage)
+                .foregroundColor(.red)
+            
             Button(action: {
-                
+                if !mail.isEmpty && loginVM.isValidEmail(mail) {
+                    userModel = UserModel(mailAdress: mail)
+                    loginVM.errorMessage = ""
+                    mail = ""
+                    loginVM.showContentView = true
+                } else {
+                    loginVM.errorMessage = "error!"
+                }
             }) {
                 Text("ログイン")
                     .homeBtnStyle()
-            }
-            .padding(.top)
+            }.padding(.top)
+            
             Spacer()
-        }.frame(maxWidth: .infinity, maxHeight: .infinity)
+            
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .fullScreenCover(isPresented: $loginVM.showContentView) {
+            ContentView()
+        }
     }
 }
 

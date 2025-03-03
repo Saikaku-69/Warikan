@@ -8,8 +8,13 @@
 import SwiftUI
 
 struct ContentView: View {
+    
     let width:Double = UIScreen.main.bounds.width
+    @Environment(\.dismiss) private var dismiss
+    @State private var EditUserProfile:Bool = false
+    
     var body: some View {
+        
         ZStack {
             Color.white.ignoresSafeArea()
             VStack {
@@ -17,25 +22,19 @@ struct ContentView: View {
                 Image("BeerDouble")
                     
                 Button(action: {
-                    
+                    EditUserProfile = true
                 }) {
-                    Text("グループ作成")
+                    Text("グループリスト")
                         .homeBtnStyle()
                 }
                 Spacer()
-                HStack {
-                    Button(action: {
-                        
-                    }) {
-                        Text("Login")
-                            .foregroundColor(.gray)
-                            .underline()
-                    }
-                    Spacer()
+                Button(action: {
+                    dismiss()
+                }) {
                     Text("Logout")
                         .foregroundColor(.gray)
                         .underline()
-                }.frame(width:width/2)
+                }
             }
             .overlay(
                 Text("Double A")
@@ -44,6 +43,9 @@ struct ContentView: View {
                 alignment: .top
             )
         }.frame(maxWidth: .infinity, maxHeight: .infinity)
+            .fullScreenCover(isPresented: $EditUserProfile) {
+                AccountView()
+            }
     }
 }
 

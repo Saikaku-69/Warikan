@@ -14,6 +14,12 @@
 		7F3A28682D748E1B0079845F /* ViewStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3A28672D748E1B0079845F /* ViewStyles.swift */; };
 		7F3A286A2D748EE90079845F /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3A28692D748EE90079845F /* LoginView.swift */; };
 		7F3A286D2D7490500079845F /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3A286C2D7490500079845F /* LoginViewModel.swift */; };
+		7FB891532D75CE9C00D38B66 /* AddGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB891522D75CE9C00D38B66 /* AddGroupView.swift */; };
+		7FB891562D75CF3A00D38B66 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB891552D75CF3A00D38B66 /* UserModel.swift */; };
+		7FB891582D75CFC900D38B66 /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB891572D75CFC900D38B66 /* AccountView.swift */; };
+		7FB8915A2D75D1EC00D38B66 /* CameraCaptureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB891592D75D1EC00D38B66 /* CameraCaptureView.swift */; };
+		7FB8915C2D75D4F000D38B66 /* EditIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB8915B2D75D4F000D38B66 /* EditIconView.swift */; };
+		7FB8915E2D75D5C400D38B66 /* AccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB8915D2D75D5C400D38B66 /* AccountViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +31,12 @@
 		7F3A28672D748E1B0079845F /* ViewStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewStyles.swift; sourceTree = "<group>"; };
 		7F3A28692D748EE90079845F /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		7F3A286C2D7490500079845F /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		7FB891522D75CE9C00D38B66 /* AddGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGroupView.swift; sourceTree = "<group>"; };
+		7FB891552D75CF3A00D38B66 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		7FB891572D75CFC900D38B66 /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
+		7FB891592D75D1EC00D38B66 /* CameraCaptureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraCaptureView.swift; sourceTree = "<group>"; };
+		7FB8915B2D75D4F000D38B66 /* EditIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditIconView.swift; sourceTree = "<group>"; };
+		7FB8915D2D75D5C400D38B66 /* AccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +72,7 @@
 				7F05F6892D730C9700D4F555 /* WarikanApp.swift */,
 				7F3A28652D735F420079845F /* Views */,
 				7F3A286B2D7490140079845F /* ViewModels */,
+				7FB891542D75CF2B00D38B66 /* Models */,
 				7F05F68D2D730C9A00D4F555 /* Assets.xcassets */,
 				7F05F68F2D730C9A00D4F555 /* Preview Content */,
 			);
@@ -79,6 +92,9 @@
 			children = (
 				7F05F68B2D730C9700D4F555 /* ContentView.swift */,
 				7F3A28692D748EE90079845F /* LoginView.swift */,
+				7FB891522D75CE9C00D38B66 /* AddGroupView.swift */,
+				7FB891572D75CFC900D38B66 /* AccountView.swift */,
+				7FB8915B2D75D4F000D38B66 /* EditIconView.swift */,
 				7F3A28662D748E010079845F /* Styles */,
 			);
 			path = Views;
@@ -96,8 +112,18 @@
 			isa = PBXGroup;
 			children = (
 				7F3A286C2D7490500079845F /* LoginViewModel.swift */,
+				7FB891592D75D1EC00D38B66 /* CameraCaptureView.swift */,
+				7FB8915D2D75D5C400D38B66 /* AccountViewModel.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		7FB891542D75CF2B00D38B66 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				7FB891552D75CF3A00D38B66 /* UserModel.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -170,8 +196,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7FB891532D75CE9C00D38B66 /* AddGroupView.swift in Sources */,
+				7FB8915E2D75D5C400D38B66 /* AccountViewModel.swift in Sources */,
 				7F3A28682D748E1B0079845F /* ViewStyles.swift in Sources */,
 				7F05F68C2D730C9700D4F555 /* ContentView.swift in Sources */,
+				7FB8915C2D75D4F000D38B66 /* EditIconView.swift in Sources */,
+				7FB8915A2D75D1EC00D38B66 /* CameraCaptureView.swift in Sources */,
+				7FB891562D75CF3A00D38B66 /* UserModel.swift in Sources */,
+				7FB891582D75CFC900D38B66 /* AccountView.swift in Sources */,
 				7F3A286A2D748EE90079845F /* LoginView.swift in Sources */,
 				7F3A286D2D7490500079845F /* LoginViewModel.swift in Sources */,
 				7F05F68A2D730C9700D4F555 /* WarikanApp.swift in Sources */,
