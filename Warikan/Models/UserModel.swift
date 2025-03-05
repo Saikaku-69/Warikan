@@ -11,13 +11,25 @@ import SwiftUI
 struct UserModel {
     
     let id = UUID()
-    let icon:UIImage?
-    let name:String?
+    var icon:UIImage?
+    var name:String?
     let mailAdress:String
     
     init(icon: UIImage? = nil, name: String? = nil, mailAdress: String) {
         self.icon = icon
         self.name = name
         self.mailAdress = mailAdress
+    }
+}
+
+struct UserInfoModel {
+    var name:String?
+    var genda:String?
+    var mail:String
+    
+    init(name: String, genda: String, mail: String) {
+        self.name = name
+        self.genda = genda
+        self.mail = mail
     }
 }

@@ -11,19 +11,28 @@ struct AccountView: View {
     
     @State var image: UIImage?
     @State private var userModel: UserModel?
+    @State private var user = UserModel(mailAdress: "")
     @State private var showImagePickerDialog = false
     @State private var showCamera: Bool = false
     @State private var showLibrary: Bool = false
+    @State private var userInfo: UserInfoModel?
     
     var body: some View {
         
         VStack {
             
-            if let image {
-                Image(uiImage: image)
+            if let icon = user.icon {
+                Image(uiImage: icon)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 100)
+                    .clipShape(Circle())
             } else {
-                Image(systemName: "person.circle")
-                    .font(.system(size:100))
+                Image(systemName: "person.crop.circle.fill")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 100, height: 100)
+                    .foregroundColor(.gray)
             }
             
             Button(action: {
@@ -33,6 +42,13 @@ struct AccountView: View {
                     .underline()
             }
             
+            Text("名前：")
+            Text("性別：")
+            Text("Mail：")
+            
+        }
+        .sheet(isPresented: $showLibrary) {
+            PhotoLibraryPickerView(image: $user.icon)
         }
         .fullScreenCover(isPresented: $showCamera) {
             CameraCaptureView(image: $image)
