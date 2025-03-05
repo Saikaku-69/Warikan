@@ -9,6 +9,7 @@ import Foundation
 import SwiftUI
 
 struct UserModel {
+    
     let id = UUID()
     let icon:UIImage?
     let name:String?

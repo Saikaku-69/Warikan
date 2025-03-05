@@ -11,41 +11,63 @@ struct ContentView: View {
     
     let width:Double = UIScreen.main.bounds.width
     @Environment(\.dismiss) private var dismiss
-    @State private var EditUserProfile:Bool = false
+    @StateObject var accountVM = AccountViewModel()
     
     var body: some View {
-        
-        ZStack {
-            Color.white.ignoresSafeArea()
-            VStack {
-                Spacer()
-                Image("BeerDouble")
+        NavigationStack {
+            ZStack {
+                
+                Color.white.ignoresSafeArea()
+                
+                VStack {
                     
-                Button(action: {
-                    EditUserProfile = true
-                }) {
-                    Text("グループリスト")
-                        .homeBtnStyle()
+                    Spacer()
+                    
+                    Image("BeerDouble")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width:100)
+                    
+                    Button(action: {
+                        print(accountVM.profileController)
+                        accountVM.showProfile()
+                        print(accountVM.profileController)
+                    }) {
+                        Text("プロフィール")
+                            .homeBtnStyle()
+                    }
+                    
+                    Button(action: {
+                        
+                    }) {
+                        Text("グループを作成する")
+                            .homeBtnStyle()
+                    }
+                    
+                    Spacer()
+                    
+                    Button(action: {
+                        dismiss()
+                    }) {
+                        Text("Logout")
+                            .foregroundColor(.gray)
+                            .underline()
+                    }
+                    
                 }
-                Spacer()
-                Button(action: {
-                    dismiss()
-                }) {
-                    Text("Logout")
-                        .foregroundColor(.gray)
-                        .underline()
-                }
+                .overlay(
+                    Text("Double A")
+                        .frame(width:width)
+                        .titleStyle(),
+                    alignment: .top
+                )
             }
-            .overlay(
-                Text("Double A")
-                    .frame(width:width)
-                    .titleStyle(),
-                alignment: .top
-            )
-        }.frame(maxWidth: .infinity, maxHeight: .infinity)
-            .fullScreenCover(isPresented: $EditUserProfile) {
+            .navigationDestination(isPresented: $accountVM.profileController) {
                 AccountView()
             }
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        
     }
 }
 

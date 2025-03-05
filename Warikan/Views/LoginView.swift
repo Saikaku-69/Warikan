@@ -9,7 +9,6 @@ import SwiftUI
 
 struct LoginView: View {
     
-    @State private var mail:String = ""
     @State private var userModel: UserModel?
     @StateObject private var loginVM = LoginViewModel()
     
@@ -18,26 +17,29 @@ struct LoginView: View {
         VStack {
             Text("登録画面")
                 .font(.title)
+                .padding(.bottom)
             
             Text("メールを入力してください")
-            TextField("@jec.ac.jp", text:$mail)
+            TextField("@jec.ac.jp", text:$loginVM.mail)
                 .txtFieldStyle()
+            
             Text(loginVM.errorMessage)
                 .foregroundColor(.red)
+                .frame(height:50)
             
             Button(action: {
-                if !mail.isEmpty && loginVM.isValidEmail(mail) {
-                    userModel = UserModel(mailAdress: mail)
-                    loginVM.errorMessage = ""
-                    mail = ""
-                    loginVM.showContentView = true
-                } else {
-                    loginVM.errorMessage = "error!"
-                }
+                loginVM.login()
             }) {
                 Text("ログイン")
                     .homeBtnStyle()
             }.padding(.top)
+            
+            Button(action: {
+                loginVM.forceLogin()
+            }) {
+                Text("管理人登録")
+                    .homeBtnStyle()
+            }
             
             Spacer()
             

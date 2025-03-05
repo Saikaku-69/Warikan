@@ -8,5 +8,9 @@
 import Foundation
 
 class AccountViewModel:ObservableObject {
+    @Published var profileController:Bool = false
     
+    func showProfile() {
+        profileController = true
+    }
 }

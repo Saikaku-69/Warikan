@@ -8,14 +8,13 @@
 import SwiftUI
 
 struct AccountView: View {
-    @State var image: UIImage?
-    @State var showEdit:Bool = false
-    @State private var userModel: UserModel?
     
+    @State var image: UIImage?
+    @State private var userModel: UserModel?
     @State private var showImagePickerDialog = false
     @State private var showCamera: Bool = false
     @State private var showLibrary: Bool = false
-    //@Environment(\dismiss) private var dismiss
+    
     var body: some View {
         
         VStack {
@@ -26,25 +25,13 @@ struct AccountView: View {
                 Image(systemName: "person.circle")
                     .font(.system(size:100))
             }
+            
             Button(action: {
                 showImagePickerDialog = true
             }) {
                 Text("編集する")
                     .underline()
             }
-//            HStack {
-//                Text("名前")
-//                    .frame(width: 100)
-//                    .border(.green)
-//                
-//                Text("\(userModel?.name ?? "User")")
-//                    .frame(width:100)
-//                    .border(.green)
-//                
-//            }
-            
-        }
-        .sheet(isPresented: $showEdit) {
             
         }
         .fullScreenCover(isPresented: $showCamera) {
@@ -57,7 +44,9 @@ struct AccountView: View {
                     titleVisibility: .hidden
                 ) {
                     Button {
+                        print(showCamera)
                         showCamera = true
+                        print(showCamera)
                     } label: {
                         Text("カメラで撮る")
                     }
