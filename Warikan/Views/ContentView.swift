@@ -8,14 +8,64 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    let width:Double = UIScreen.main.bounds.width
+    @Environment(\.dismiss) private var dismiss
+    @StateObject var accountVM = AccountViewModel()
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        NavigationStack {
+            ZStack {
+                
+                Color.white.ignoresSafeArea()
+                
+                VStack {
+                    
+                    Spacer()
+                    
+                    Image("BeerDouble")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width:100)
+                    
+                    Button(action: {
+                        accountVM.showProfile()
+                    }) {
+                        Text("プロフィール")
+                            .homeBtnStyle()
+                    }
+                    
+                    Button(action: {
+                        
+                    }) {
+                        Text("グループを作成する")
+                            .homeBtnStyle()
+                    }
+                    
+                    Spacer()
+                    
+                    Button(action: {
+                        dismiss()
+                    }) {
+                        Text("Logout")
+                            .foregroundColor(.gray)
+                            .underline()
+                    }
+                    
+                }
+                .overlay(
+                    Text("Double A")
+                        .frame(width:width)
+                        .titleStyle(),
+                    alignment: .top
+                )
+            }
+            .navigationDestination(isPresented: $accountVM.profileController) {
+                AccountView()
+            }
         }
-        .padding()
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        
     }
 }
 
