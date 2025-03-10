@@ -39,3 +39,14 @@ extension View {
             .cornerRadius(1)
     }
 }
+
+extension View {
+    func userInfoStyle() -> some View {
+        self
+            .frame(width:300,height:50)
+            .padding(5)
+            .border(.black)
+            .minimumScaleFactor(0.5)
+            .lineLimit(1)
+    }
+}

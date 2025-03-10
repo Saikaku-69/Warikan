@@ -8,42 +8,64 @@
 import SwiftUI
 
 struct ContentView: View {
+    
     let width:Double = UIScreen.main.bounds.width
+    @Environment(\.dismiss) private var dismiss
+    @StateObject var accountVM = AccountViewModel()
+    
     var body: some View {
-        ZStack {
-            Color.white.ignoresSafeArea()
-            VStack {
-                Spacer()
-                Image("BeerDouble")
+        NavigationStack {
+            ZStack {
+                
+                Color.white.ignoresSafeArea()
+                
+                VStack {
                     
-                Button(action: {
+                    Spacer()
                     
-                }) {
-                    Text("グループ作成")
-                        .homeBtnStyle()
-                }
-                Spacer()
-                HStack {
+                    Image("BeerDouble")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width:100)
+                    
+                    Button(action: {
+                        accountVM.showProfile()
+                    }) {
+                        Text("プロフィール")
+                            .homeBtnStyle()
+                    }
+                    
                     Button(action: {
                         
                     }) {
-                        Text("Login")
+                        Text("グループを作成する")
+                            .homeBtnStyle()
+                    }
+                    
+                    Spacer()
+                    
+                    Button(action: {
+                        dismiss()
+                    }) {
+                        Text("Logout")
                             .foregroundColor(.gray)
                             .underline()
                     }
-                    Spacer()
-                    Text("Logout")
-                        .foregroundColor(.gray)
-                        .underline()
-                }.frame(width:width/2)
+                    
+                }
+                .overlay(
+                    Text("Double A")
+                        .frame(width:width)
+                        .titleStyle(),
+                    alignment: .top
+                )
             }
-            .overlay(
-                Text("Double A")
-                    .frame(width:width)
-                    .titleStyle(),
-                alignment: .top
-            )
-        }.frame(maxWidth: .infinity, maxHeight: .infinity)
+            .navigationDestination(isPresented: $accountVM.profileController) {
+                AccountView()
+            }
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        
     }
 }
 
