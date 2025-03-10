@@ -13,7 +13,7 @@ struct UserModel {
     let id = UUID()
     var icon:UIImage?
     var name:String?
-    let mailAdress:String
+    var mailAdress:String
     
     init(icon: UIImage? = nil, name: String? = nil, mailAdress: String) {
         self.icon = icon
@@ -22,14 +22,14 @@ struct UserModel {
     }
 }
 
-struct UserInfoModel {
-    var name:String?
-    var genda:String?
-    var mail:String
-    
-    init(name: String, genda: String, mail: String) {
-        self.name = name
-        self.genda = genda
-        self.mail = mail
-    }
-}
+//struct UserInfoModel {
+//    var name:String?
+//    var genda:String?
+//    var mail:String
+//    
+//    init(name: String, genda: String, mail: String) {
+//        self.name = name
+//        self.genda = genda
+//        self.mail = mail
+//    }
+//}

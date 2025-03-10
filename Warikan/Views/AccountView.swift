@@ -10,18 +10,17 @@ import SwiftUI
 struct AccountView: View {
     
     @State var image: UIImage?
-    @State private var userModel: UserModel?
-    @State private var user = UserModel(mailAdress: "")
     @State private var showImagePickerDialog = false
     @State private var showCamera: Bool = false
     @State private var showLibrary: Bool = false
-    @State private var userInfo: UserInfoModel?
+    
+    @EnvironmentObject var loginVM: LoginViewModel
     
     var body: some View {
         
         VStack {
             
-            if let icon = user.icon {
+            if let icon = loginVM.userModel.icon {
                 Image(uiImage: icon)
                     .resizable()
                     .scaledToFit()
@@ -42,39 +41,47 @@ struct AccountView: View {
                     .underline()
             }
             
-            Text("名前：")
-            Text("性別：")
-            Text("Mail：")
+            HStack {
+                Text("名前:")
+                Spacer()
+                Text(loginVM.userModel.name ?? "未設定")
+            }
+            .userInfoStyle()
+            
+            
+            HStack {
+                Text("メール:")
+                Spacer()
+                Text(loginVM.userModel.mailAdress)
+            }
+            .userInfoStyle()
             
         }
         .sheet(isPresented: $showLibrary) {
-            PhotoLibraryPickerView(image: $user.icon)
+            PhotoLibraryPickerView(image: Binding(
+                get: { loginVM.userModel.icon },
+                set: { loginVM.userModel.icon = $0 }
+            ))
         }
         .fullScreenCover(isPresented: $showCamera) {
             CameraCaptureView(image: $image)
                 .ignoresSafeArea()
         }
-        .confirmationDialog(
-                    "",
-                    isPresented: $showImagePickerDialog,
-                    titleVisibility: .hidden
-                ) {
-                    Button {
-                        print(showCamera)
-                        showCamera = true
-                        print(showCamera)
-                    } label: {
-                        Text("カメラで撮る")
-                    }
-                    Button {
-                        showLibrary = true
-                    } label: {
-                        Text("アルバムから選ぶ")
-                    }
-                    Button("キャンセル", role: .cancel) {
-                        showImagePickerDialog = false
-                    }
-                }
+        .confirmationDialog("",isPresented: $showImagePickerDialog,titleVisibility: .hidden) {
+            Button {
+                showCamera = true
+            } label: {
+                Text("カメラで撮る")
+            }
+            Button {
+                showLibrary = true
+            } label: {
+                Text("アルバムから選ぶ")
+            }
+            Button("キャンセル", role: .cancel) {
+                showImagePickerDialog = false
+            }
+        }
     }
 }
 

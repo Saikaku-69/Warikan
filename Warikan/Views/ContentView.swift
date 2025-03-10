@@ -29,9 +29,7 @@ struct ContentView: View {
                         .frame(width:100)
                     
                     Button(action: {
-                        print(accountVM.profileController)
                         accountVM.showProfile()
-                        print(accountVM.profileController)
                     }) {
                         Text("プロフィール")
                             .homeBtnStyle()
