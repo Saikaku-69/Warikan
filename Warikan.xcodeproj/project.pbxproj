@@ -22,9 +22,11 @@
 		7FB8915A2D75D1EC00D38B66 /* CameraCaptureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB891592D75D1EC00D38B66 /* CameraCaptureView.swift */; };
 		7FB8915C2D75D4F000D38B66 /* EditIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB8915B2D75D4F000D38B66 /* EditIconView.swift */; };
 		7FB8915E2D75D5C400D38B66 /* AccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB8915D2D75D5C400D38B66 /* AccountViewModel.swift */; };
+		8A9826ABED21955263161ECB /* Pods_Warikan.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91D44F06098E606425697A75 /* Pods_Warikan.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0593E78A735638087B351DFA /* Pods-Warikan.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Warikan.release.xcconfig"; path = "Target Support Files/Pods-Warikan/Pods-Warikan.release.xcconfig"; sourceTree = "<group>"; };
 		7F05F6862D730C9700D4F555 /* Warikan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Warikan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F05F6892D730C9700D4F555 /* WarikanApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarikanApp.swift; sourceTree = "<group>"; };
 		7F05F68B2D730C9700D4F555 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -41,6 +43,8 @@
 		7FB891592D75D1EC00D38B66 /* CameraCaptureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraCaptureView.swift; sourceTree = "<group>"; };
 		7FB8915B2D75D4F000D38B66 /* EditIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditIconView.swift; sourceTree = "<group>"; };
 		7FB8915D2D75D5C400D38B66 /* AccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewModel.swift; sourceTree = "<group>"; };
+		8DC93396D7120D11BB2C6430 /* Pods-Warikan.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Warikan.debug.xcconfig"; path = "Target Support Files/Pods-Warikan/Pods-Warikan.debug.xcconfig"; sourceTree = "<group>"; };
+		91D44F06098E606425697A75 /* Pods_Warikan.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Warikan.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,17 +52,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A9826ABED21955263161ECB /* Pods_Warikan.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2BDF7C58FF456C8233CCE1D7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8DC93396D7120D11BB2C6430 /* Pods-Warikan.debug.xcconfig */,
+				0593E78A735638087B351DFA /* Pods-Warikan.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		331B03DC442CFB35D6C506BF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				91D44F06098E606425697A75 /* Pods_Warikan.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		7F05F67D2D730C9700D4F555 = {
 			isa = PBXGroup;
 			children = (
 				7F05F6882D730C9700D4F555 /* Warikan */,
 				7F05F6872D730C9700D4F555 /* Products */,
+				2BDF7C58FF456C8233CCE1D7 /* Pods */,
+				331B03DC442CFB35D6C506BF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -139,9 +164,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7F05F6942D730C9A00D4F555 /* Build configuration list for PBXNativeTarget "Warikan" */;
 			buildPhases = (
+				91075A6D28D6676637CEE675 /* [CP] Check Pods Manifest.lock */,
 				7F05F6822D730C9700D4F555 /* Sources */,
 				7F05F6832D730C9700D4F555 /* Frameworks */,
 				7F05F6842D730C9700D4F555 /* Resources */,
+				A2646088472BE0112335240D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -196,6 +223,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		91075A6D28D6676637CEE675 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Warikan-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A2646088472BE0112335240D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Warikan/Pods-Warikan-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Warikan/Pods-Warikan-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Warikan/Pods-Warikan-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		7F05F6822D730C9700D4F555 /* Sources */ = {
@@ -342,6 +411,7 @@
 		};
 		7F05F6952D730C9A00D4F555 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8DC93396D7120D11BB2C6430 /* Pods-Warikan.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -372,6 +442,7 @@
 		};
 		7F05F6962D730C9A00D4F555 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0593E78A735638087B351DFA /* Pods-Warikan.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
