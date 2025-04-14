@@ -21,15 +21,3 @@ struct UserModel {
         self.mailAdress = mailAdress
     }
 }
-
-//struct UserInfoModel {
-//    var name:String?
-//    var genda:String?
-//    var mail:String
-//    
-//    init(name: String, genda: String, mail: String) {
-//        self.name = name
-//        self.genda = genda
-//        self.mail = mail
-//    }
-//}
